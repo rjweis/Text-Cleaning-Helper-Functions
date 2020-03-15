@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Text Cleaning Function
-
-# In[79]:
-
-
 def clean_docs(doc_lst = [], remove_lst = [], replace_dict = {},
                    tokenize_return = False, stem_docs = False, lemmatize_docs = True):
     ''' Cleans an array of documents according to the arguments specified by the user.
@@ -22,10 +17,6 @@ def clean_docs(doc_lst = [], remove_lst = [], replace_dict = {},
     Returns:
         doc_array: List of freshly cleaned documents.
         
-    Step-by-step overview:
-        1. Make words lower case
-        2. Round 1 of removing stop words.
-        3.
         
     Notes:
         doc_lst MUST be either a pandas.Series() or a column of a pandas.DataFrame.
@@ -178,9 +169,10 @@ def clean_docs(doc_lst = [], remove_lst = [], replace_dict = {},
     
     return(doc_lst)
 
-
-# In[60]:
-
+ 
+###
+###
+###
 
 def word_list_replace(doc_lst, replace_dict):
     import re
@@ -196,11 +188,8 @@ def word_list_replace(doc_lst, replace_dict):
             n += 1
     
     return(doc_lst)
-
-
-# In[61]:
-
-
+  
+  
 def remove_punc(doc_lst):
     import string
     
@@ -210,9 +199,6 @@ def remove_punc(doc_lst):
                          not in punct) for word in doc_lst)
 
     return(clean_docs)
-
-
-# In[62]:
 
 
 def remove_stopwords(doc_lst, remove_lst = []):
@@ -231,9 +217,6 @@ def remove_stopwords(doc_lst, remove_lst = []):
     return(doc_lst)
 
 
-# In[63]:
-
-
 def stem(doc_lst):
     import nltk
     porter = nltk.stem.porter.PorterStemmer()
@@ -248,9 +231,6 @@ def stem(doc_lst):
         n += 1
     
     return(doc_lst)
-
-
-# In[64]:
 
 
 def lemmatize(doc_lst):
@@ -268,9 +248,6 @@ def lemmatize(doc_lst):
         n += 1
 
     return(doc_lst)
-
-
-# In[65]:
 
 
 def ngram_counter(doc_lst, ngram_size):
@@ -301,9 +278,6 @@ def ngram_counter(doc_lst, ngram_size):
     output = list(zip(unique_ngrams, cnt_list))
     
     return(output)
-
-
-# In[ ]:
 
 def remove_lst():
     '''Returns a list of the words that are currently being removed from the transcripts in our cleaning process.'''
@@ -342,8 +316,6 @@ def repl_dict():
         'played': 'paid',
         'playing': 'paying',
         'tech': 'technical',
-        'sherrion': 'asurion',
-        'assyrian': 'asurion',
         'agent': 'representative',
         'blue tooth': 'bluetooth',
         'plane': 'plan',
@@ -356,7 +328,6 @@ def repl_dict():
         'hi pads': 'ipad',
         'hipad': 'ipad',
         'clean': 'claim',
-        'assurant': 'asurion',
         '  ': ' ',  # replace double spaces with single spaces
         'cellphone': 'cell phone',
         'miss placed': 'misplaced', 
